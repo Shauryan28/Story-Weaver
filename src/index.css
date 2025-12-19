@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Patrick+Hand&family=Virgil&display=swap');
+
+:root {
+  --font-hand: 'Patrick Hand', 'Architects Daughter', cursive;
+  --font-title: 'Architects Daughter', cursive;
+
+  /* Dark Chalkboard Theme */
+  --color-bg: #1a1a1a;
+  --color-sidebar: #242424;
+  --color-ink: #e0e0e0;
+  /* Chalk white */
+  --color-accent: #ffffff;
+  /* White for highlights */
+  --color-border: #555;
+
+  --radius-sketch: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-hand);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.6;
+  font-size: 1.1rem;
+  overflow: hidden;
+  /* Prevent scroll on body, layout handles it */
+}
+
+button {
+  font-family: var(--font-hand);
+  cursor: pointer;
+}
+
+/* Scrollbar adaptation */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
