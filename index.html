@@ -1,13 +1,34 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Story Weaver</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Story Weaver</title>
+</head>
+
+<body>
+  <div id="root" style="color: white; padding: 20px; font-family: monospace;">
+    Loading The Chronicle...
+    <div id="loading-errors" style="color: red; margin-top: 20px; text-align: left;"></div>
+  </div>
+  <script>
+    window.onerror = function (message, source, lineno, colno, error) {
+      var el = document.getElementById('loading-errors');
+      if (el) {
+        el.innerHTML += '<p>Error: ' + message + '<br>Source: ' + source + ':' + lineno + '</p>';
+        el.innerHTML += '<pre>' + (error && error.stack ? error.stack : '') + '</pre>';
+      }
+    };
+    window.addEventListener('unhandledrejection', function (event) {
+      var el = document.getElementById('loading-errors');
+      if (el) {
+        el.innerHTML += '<p>Unhandled Rejection: ' + event.reason + '</p>';
+      }
+    });
+  </script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
