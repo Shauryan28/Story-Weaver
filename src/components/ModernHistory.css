@@ -1,0 +1,141 @@
+.chronicle-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+}
+
+.chronicle-header {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1rem;
+}
+
+.chronicle-entry {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+}
+
+.entry-header {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    /* Allow wrapping on small screens */
+}
+
+.entry-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.entry-content {
+    font-family: var(--font-hand);
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: #eee;
+    text-align: justify;
+}
+
+.seed-section {
+    border-top: 1px dashed #444;
+    padding-top: 1rem;
+    overflow: hidden;
+}
+
+.seed-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    color: #888;
+    font-family: var(--font-title);
+}
+
+.seed-content {
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: #aaa;
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 8px;
+    white-space: pre-wrap;
+}
+
+.entry-footer {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+    font-family: var(--font-title);
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid #666;
+    color: #aaa;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: var(--font-hand);
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn-ghost.active {
+    color: var(--color-accent);
+}
+
+.btn-primary {
+    background: var(--color-accent);
+    border: none;
+    color: #1a1a1a;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: var(--font-hand);
+    font-weight: bold;
+}
+
+.btn-danger {
+    background: rgba(255, 107, 107, 0.2);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: var(--font-hand);
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .chronicle-header {
+        font-size: 2rem;
+    }
+
+    .chronicle-entry {
+        padding: 1.5rem;
+    }
+
+    .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .entry-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}

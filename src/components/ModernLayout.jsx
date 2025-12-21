@@ -4,11 +4,26 @@ import RepulsionBackground from './RepulsionBackground';
 import './ModernLayout.css';
 
 const ModernLayout = ({ activeTab, onTabChange, onExport, onLogout, user, mainContent }) => {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const handleNavClick = (tab) => {
+        onTabChange(tab);
+        setIsMobileMenuOpen(false);
+    };
+
     return (
         <>
             <RepulsionBackground />
             <div className="app-layout">
-                <aside className="sidebar">
+                {/* Mobile Toggle */}
+                <button
+                    className="mobile-toggle"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                    {isMobileMenuOpen ? '✕' : '☰'}
+                </button>
+
+                <aside className={`sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
                     <div className="sidebar-header">
                         <div className="brand">
                             Story Weaver
@@ -18,31 +33,31 @@ const ModernLayout = ({ activeTab, onTabChange, onExport, onLogout, user, mainCo
                     <nav className="nav-menu">
                         <button
                             className={`nav-item ${activeTab === 'write' ? 'active' : ''}`}
-                            onClick={() => onTabChange('write')}
+                            onClick={() => handleNavClick('write')}
                         >
                             <span>✐</span> Write
                         </button>
                         <button
                             className={`nav-item ${activeTab === 'history' ? 'active' : ''}`}
-                            onClick={() => onTabChange('history')}
+                            onClick={() => handleNavClick('history')}
                         >
                             <span>📖</span> Chronicle
                         </button>
                         <button
                             className={`nav-item ${activeTab === 'account' ? 'active' : ''}`}
-                            onClick={() => onTabChange('account')}
+                            onClick={() => handleNavClick('account')}
                         >
                             <span>👤</span> My Account
                         </button>
                         <button
                             className={`nav-item ${activeTab === 'howto' ? 'active' : ''}`}
-                            onClick={() => onTabChange('howto')}
+                            onClick={() => handleNavClick('howto')}
                         >
                             <span>📜</span> Guide
                         </button>
                         <button
                             className={`nav-item ${activeTab === 'about' ? 'active' : ''}`}
-                            onClick={() => onTabChange('about')}
+                            onClick={() => handleNavClick('about')}
                         >
                             <span>💡</span> Why?
                         </button>

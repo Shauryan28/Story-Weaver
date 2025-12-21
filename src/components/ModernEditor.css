@@ -80,3 +80,25 @@
     cursor: not-allowed;
     box-shadow: none;
 }
+
+@media (max-width: 768px) {
+    .editor-title {
+        font-size: 1.8rem;
+    }
+
+    .editor-textarea {
+        font-size: 1.1rem;
+        line-height: 1.6rem;
+        min-height: 300px;
+    }
+
+    .editor-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .action-button {
+        width: 100%;
+        text-align: center;
+    }
+}
