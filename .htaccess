@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. If accessing the root, serve dist/index.html
+  RewriteRule ^$ dist/index.html [L]
+
+  # 2. If the request points to a file that exists in /dist, rewrite to it
+  RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
+  RewriteRule ^(.*)$ dist/$1 [L]
+
+  # 3. If the request points to a directory that exists in /dist, rewrite to it
+  RewriteCond %{DOCUMENT_ROOT}/dist/$1 -d
+  RewriteRule ^(.*)$ dist/$1 [L]
+
+  # 4. Fallback: Serve dist/index.html for any other request (SPA Routing)
+  RewriteRule . dist/index.html [L]
+</IfModule>
