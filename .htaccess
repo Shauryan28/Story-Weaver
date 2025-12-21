@@ -2,18 +2,15 @@
   RewriteEngine On
   RewriteBase /
 
-  # Prioritize index.php over index.html
-  DirectoryIndex index.php index.html
+  # Redirect root to dist/index.html
+  RewriteRule ^$ dist/index.html [L]
 
-  # 1. Asset Rewriting:
-  # If a request for /assets/... or /vite.svg exists in /dist, rewrite it there.
-  # logic: check if /dist/$uri exists as a file.
-  RewriteCond %{DOCUMENT_ROOT}/dist%{REQUEST_URI} -f
+  # If the requested file exists in /dist/, serve it from there
+  RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
   RewriteRule ^(.*)$ dist/$1 [L]
 
-  # 2. General Fallback (SPA)
-  # If not a file/dir, route to index.php (which loads dist/index.html)
+  # For any other request that isn't a real file, serve dist/index.html (SPA routing)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . index.php [L]
+  RewriteRule . dist/index.html [L]
 </IfModule>
