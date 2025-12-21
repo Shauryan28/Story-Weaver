@@ -85,6 +85,12 @@ const ModernLayout = ({ activeTab, onTabChange, onExport, onLogout, user, mainCo
                     </div>
                 </aside>
 
+                {/* Backdrop for mobile */}
+                <div
+                    className="sidebar-backdrop"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                />
+
                 <main className="main-content custom-scroll">
                     <div className="content-container">
                         <AnimatePresence mode="wait">

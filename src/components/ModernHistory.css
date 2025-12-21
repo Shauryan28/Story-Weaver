@@ -138,4 +138,8 @@
         width: 100%;
         justify-content: flex-end;
     }
+
+    .entry-content {
+        text-align: left;
+    }
 }
